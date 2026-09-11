@@ -1,0 +1,38 @@
+#Python treats single quotes the same as double quotes as like triple quotes, but has some differences
+>>> company1='inceptez'
+>>> company2="inceptez"
+>>> company3="""inceptez"""
+>>> print(company1,company2,company3)
+inceptez inceptez inceptez
+>>> #python treat all as same
+
+
+#Then why 3 notations?
+#Double quotes is used for holding single quoted chars
+#company1='inceptez's'#this will not work
+>>> company1="this is inceptez's property"
+>>> company2='this is "inceptez"s property'
+>>>
+>>> print (company1,company2)
+this is inceptez's property this is "inceptez"s property
+>>>
+
+#Triple quotes (either '''/""") place very important roles
+#For holding both single, double quoted data we can use triple quotes
+>>> company3="""this is "inceptez's" company's property"""
+>>>
+>>> print (company1)
+this is inceptez's property
+>>>
+>>> print (company1,company2,company3)
+this is inceptez's property this is "inceptez"s property this is "inceptez's" company's property
+>>> print (company3)
+this is "inceptez's" company's property
+
+#For handling paragraph/multilines text, we can use 3 single or doublequotes
+sql_query="""select * from tablename
+where city='chennai'
+order by id"""
+
+
+

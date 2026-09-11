@@ -1,0 +1,29 @@
+#Why Python uses indend based programing ->
+#1. Managing the program more efficiently
+#2. Better Readablility of the code
+#3. For creating the hierarchy of programming.
+#4. By default 4 spaces we will give for indends, but more/less spaces or tabs also can be used...
+
+>>> aspirants_list=['Murali','Krishnai','Vaanmathy','Nag']
+>>> for aspirants in aspirants_list:
+...     print("good afternoon ",aspirants)
+...     print("good after all aspirants")
+...
+good afternoon  Murali
+good after all aspirants
+good afternoon  Krishnai
+good after all aspirants
+good afternoon  Vaanmathy
+good after all aspirants
+good afternoon  Nag
+good after all aspirants
+>>>
+>>> for aspirants in aspirants_list:
+...     print("good afternoon ",aspirants)
+... print("good after all aspirants")
+...
+good afternoon  Murali
+good afternoon  Krishnai
+good afternoon  Vaanmathy
+good afternoon  Nag
+good after all aspirants

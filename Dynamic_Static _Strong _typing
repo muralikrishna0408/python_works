@@ -1,0 +1,27 @@
+#Dynamic inference - based on the assigned value to a variable data type identified dynamically
+>>> weight=77.7
+>>> print(type(weight))
+<class 'float'>
+>>> height=6
+>>> print(type(height))
+<class 'int'>
+>>>
+
+
+#Dynamically typed (Duck type): If a variable is created with a specific data type, can be changed later
+
+>>> height=height+.5
+>>> print(type(height))
+<class 'float'>
+>>>
+
+#Strongly typed: Python allow us to operate between the variables of same datatype (of the same hierarchy) and doesn't allow to operate between different datatypes
+>>> name='murali'
+>>> weight=70
+>>> print(name+weight)
+Traceback (most recent call last):
+  File "<python-input-12>", line 1, in <module>
+    print(name+weight)
+          ~~~~^~~~~~~
+TypeError: can only concatenate str (not "int") to str
+>>>

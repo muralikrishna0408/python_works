@@ -9,7 +9,7 @@ Hello AI Team from Inceptez Technologies
 Keep Learning and Exploring!
 Hello DevOps Team from Inceptez Technologies
 Keep Learning and Exploring!
-
+------------------------------------------------------------
 #scenario#
   temp=input("Enter body temperature: ")
 if temp >="25":
@@ -18,8 +18,8 @@ elif temp >= "15" and temp < "25":
     print("it is very mild")
 else:
     print("it is very cool")
-
-#svenario#
+------------------------------------------------------------
+#scenario#
 flight = 8000
 train = 5000
 bus = 2500
@@ -29,5 +29,94 @@ elif train <= bus and train <= flight:
     print("i will go by train")
 else:
     print("i will go by bus")
+
+wallet = 4000
+flight = 8000
+train = 5000
+bus = 2500
+if wallet >= flight:
+        print("i will go by flight")
+elif wallet >= train:
+        print("i will go by train")
+else:
+        print("i will go by bus")
+
+wallet = 4000
+flight = 8000
+train = 5000
+bus = 2500
+if wallet >= flight and wallet >= train and wallet >= bus:
+        print("i will go by flight")
+elif wallet >= train or wallet >= bus or  wallet >= flight:
+        print("i will go by train")
+else:
+        print("i will go by bus")
+i will go by train
+-------------------------------------------------------------
+#scenario#
+>>> 2students = 'Ravi'
+  File "<python-input-0>", line 1
+    2students = 'Ravi'
+    ^
+SyntaxError: invalid decimal literal
+>>> _student_id = 1001
+>>> print (_student_id)
+1001
+>>>
+>>> studentName = 'murali'
+>>> print (studentName)
+murali
+>>>
+>>> class name = 'python'
+  File "<python-input-7>", line 1
+    class name = 'python'
+               ^
+SyntaxError: invalid syntax
+>>>
+>>> inceptez_batch = 'morning'
+>>>
+>>> print (inceptez_batch)
+morning
+--------------------------------------------------
+# F Scenario#
+age =input("Enter your age: ")
+if isinstance(age, str):
+    age = int(age)
+years_pending = 60 - age
+print("Years pending for retirement:", years_pending)
+-------------------------------------------------------
+# G datatype and casting
+employee_name=input("Enter employee name: ")
+print ("employee_name", employee_name)
+base_salary=float(input("Enter base salary: "))
+print("base_salary", base_salary)
+hra_percent=int(input("Enter the percent: "))
+print("hra_percent", hra_percent)
+bonus_amount=float(input("enter bonus amount: "))
+print("bonus_amount", bonus_amount)
+
+employee_name Murali
+base_salary 250000.0
+hra_percent 10
+bonus_amount 10000.0
+----------------------------------------------
+employee_name="Murali"
+base_salary=250000.0
+hra_percent=10
+bonus_amount=10000.0
+HRA = base_salary * (hra_percent / 100)
+Total_Salary = base_salary + HRA + bonus_amount
+print("employee_name", employee_name)
+print("base_salary", base_salary)
+print("HRA", HRA)
+print("bonus_amount", bonus_amount)
+print("Total_Salary", Total_Salary)
+
+employee_name Murali
+base_salary 250000.0
+HRA 25000.0
+bonus_amount 10000.0
+Total_Salary 285000.0
+------------------------------------------------------
 
 

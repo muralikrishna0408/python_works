@@ -118,5 +118,88 @@ HRA 25000.0
 bonus_amount 10000.0
 Total_Salary 285000.0
 ------------------------------------------------------
+marks=input("Enter your mark: ")
+try:
+    marks=float(marks)
+    if marks >= 90:
+        print("outstandin")
+    elif marks >= 75:
+        print("excwllwnt")
+    elif marks >= 50:
+        print("pass")
+    else:
+        print("fail")
+except ValueError:
+    print("Invalid marks. Please enter a number.")
+
+excwllwnt
+-----------------------------------------------------------
+item_name = input("Enter product name: ")
+price = float(input("Enter price per item: "))
+quantity = int(input("Enter quantity: "))
+total_cost = price * quantity
+print("You purchased " , quantity, " units of " , item_name)
+print("Total payable: " , total_cost)
+
+You purchased  3  units of  Notepad	
+Total payable:  106.5
+--------------------------------------------------------------
+
+limit = float(input("Enter total monthly data limit: "))
+data_used = int(input("Enter data used: "))
+remaining_data = limit - data_used
+usage_percentage = data_used / limit * 100
+print("your remaining data" , remaining_data, "GB")
+print("usage_percentage" , usage_percentage, "GB")
+if usage_percentage >= 80:
+    print("Warning: High usage, consider upgrading your plan")
+
+your remaining data 5.0 GB
+usage_percentage 50.0 GB
+
+--------------------------------------------------------------------
+price = float(input("Enter original price: "))
+discount_percent = int(input("Enter discount price: "))
+discount_amount = price * discount_percent / 100
+final_price = int(price - discount_amount)
+print("price", price)
+print("discount percent", discount_percent)
+print("final payable amount", final_price)
+
+price 1000.0
+discount percent 28
+final payable amount 720
+----------------------------------------------------------------------
+#bug fixing
+age = int(input("Enter age: "))
+citizen = input("Are you an Indian citizen? (yes/no)")
+if age >= 18 and citizen == "yes":
+    print("Eligible to vote")
+else:
+    print("Not eligible")
+
+Eligible to vote
+---------------------------------------------------------------------------
+#Banking Eligibility Check
+age = int(input("Enter age: "))
+monthly_income = int(input("Enter monthly income: "))
+if age < 18:
+    print("Not eligible for a bank account.")
+if age >= 18 and monthly_income < 15000:
+    print("Eligible for basic savings account.")
+if age >= 18 and monthly_income >= 15000 and monthly_income <= 30000:
+    print("Eligible for savings + salary account.")
+if age >= 18 and monthly_income > 50000:
+    print ("Eligible for premium account")
+
+Eligible for premium account
+
+-------------------------------------------------------------------------
+
+
+
+
+
+
 
 

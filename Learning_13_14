@@ -195,9 +195,30 @@ if age >= 18 and monthly_income > 50000:
 Eligible for premium account
 
 -------------------------------------------------------------------------
+#Check room availability
 
+room_available = input("Enter room available? yes/no: ")
+vip = input("is this VIP yes/no: ")
+member_years = int(input("enter how many year: "))
+if room_available == "yes":
+    if vip == "yes":
+        print("Offer complimentary upgrade")
+    elif member_years >= 5:
+        print("offer discount")
+    else:
+        print("standard")
+else:
+    print("No rooms available")
 
+-----------------------------------------------------------------------
 
+temp = float(input("Enter body temperature in Celsius: "))
+if temp < 37:
+    print("Normal temperature")
+elif temp > 37 and temp < 39:
+    print("Fever")
+else:
+    print("High fever")
 
 
 

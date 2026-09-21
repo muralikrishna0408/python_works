@@ -29,11 +29,11 @@ if room_available == "yes":
         if number_of_days >= 5:
             disc = total_cost * discount_1 /100
             final_amt = total_cost - disc
-            print("Room cost per day", room_cost, "20% discount applied final amount", final_amt)
+            print(f"Room cost per day {room_cost} 20% discount applied final amount {final_amt}")
         else:
             disc = total_cost * discount /100
             final_amt = total_cost - disc
-            print("Room cost per day", room_cost, "10% discount applied final amount", final_amt)
+            print(f"Room cost per day {room_cost} 10% discount applied final amount {final_amt}")
     else:
         print("No Discount")
 else:

@@ -17,3 +17,58 @@ else:
 
 maximum discount applied your total amount is 100
 --------------------------------------------------------------------
+room_available = input("Enter room available? yes/no")
+member = input("Enter member? yes/no")
+number_of_days = int(input("Enter number of days: "))
+room_cost = 1000
+discount = 10
+discount_1 = 20
+if room_available == "yes":
+    if member == "yes":
+        total_cost = number_of_days * room_cost
+        if number_of_days >= 5:
+            disc = total_cost * discount_1 /100
+            final_amt = total_cost - disc
+            print("Room cost per day", room_cost, "20% discount applied final amount", final_amt)
+        else:
+            disc = total_cost * discount /100
+            final_amt = total_cost - disc
+            print("Room cost per day", room_cost, "10% discount applied final amount", final_amt)
+    else:
+        print("No Discount")
+else:
+    print("No room available")
+
+-----------------------------------------------------
+cart_amount = int(input("Enter the cart amount: "))
+min_order = 1000
+discount_percent = 15
+max_discount = 500
+if cart_amount >= min_order:
+    discount = cart_amount * discount_percent /100
+    if discount > max_discount:
+        discount = max_discount
+    print("Total amount", abs(cart_amount - discount), "discount applied", discount)
+else:
+    print("Add Rs", (min_order - cart_amount), "to get discount")
+
+----------------------------------------------------------------------- 
+
+order_value = int(input("Enter order value: "))
+min_order_value = 500
+discount_order = 1000
+disc_perc = 10
+max_discount = 150
+if order_value >= discount_order:
+    discount_perc = order_value * disc_perc /100
+    if discount_perc > max_discount:
+        discount_perc = max_discount
+    print("you are eligible for free delivery and discount", discount_perc)
+elif order_value >= min_order_value:
+    print("you are eligible for free delivery and add", abs(order_value - discount_order), "for discount")
+else:
+    print("you are not eligible for free delivery add", abs(order_value - min_order_value), "for free delivery")
+
+
+
+

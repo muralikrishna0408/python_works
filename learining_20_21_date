@@ -1,0 +1,19 @@
+cart_value = int(input("Enter the cart value: "))
+minimum_cart_amt = 600
+percetage_disc = 10
+max_disc = 100
+if cart_value >= minimum_cart_amt:
+    discount = cart_value * percetage_disc / 100
+    if discount > max_disc:
+        discount = max_disc
+        print("maximum discount applied your total amount is", discount)
+    else:
+        #print("10 percentage discount applied" , discount)
+        final_amt = cart_value - discount
+        print("10 percentage discount applied your total amount is", final_amt)
+else:
+    amt_needed = cart_value <= minimum_cart_amt
+    print("add", abs(cart_value - minimum_cart_amt), "more to get discount")
+
+maximum discount applied your total amount is 100
+--------------------------------------------------------------------

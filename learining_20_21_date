@@ -68,7 +68,67 @@ elif order_value >= min_order_value:
     print("you are eligible for free delivery and add", abs(order_value - discount_order), "for discount")
 else:
     print("you are not eligible for free delivery add", abs(order_value - min_order_value), "for free delivery")
+-------------------------------------------------------------------------------------------------
 
+for i in range(1,11):
+    print("5 x", i,
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+---------------------------------------------------------------------
+#even
+n = int(input("enter postive integer: "))
+event_sum = 0
+for i in range(1, n + 1):
+    if i % 2 == 0:
+        event_sum = event_sum + i
+print("Sum of even numbers:", event_sum)
+#odd
+n = int(input("enter postive integer: "))
+odd_sum = 0
+for i in range(1, n + 1):
+    if i % 2 != 0:
+        odd_sum = odd_sum + i
+print("Sum of even numbers:", odd_sum)
+--------------------------------------------------------------------
+i = 1
+while i <= 10:
+    print(i)
+    i = i + 1
 
-
-
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+-----------------------------------
+even_num = 0
+for i in range(1, 21):
+    if i % 2 == 0:
+        print(i)
+------------------------
+for i in range(1,11):
+    print(i)
+-------------------------------------
+n = int(input("Enter a number: "))
+for i in range (1,11):
+    print(n, "x", i, "=", n * i)
+------------------------------------
+n = int(input("Enter a number: "))
+total = 0
+for i in range(1, n + 1):
+    total = total + i
+print("sum:", total)
+----------------------------------

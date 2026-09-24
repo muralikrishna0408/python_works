@@ -132,3 +132,29 @@ for i in range(1, n + 1):
     total = total + i
 print("sum:", total)
 ----------------------------------
+n = int(input("enter postive integer: "))
+event_sum = 0
+i = 1
+while i <= n:
+    if i % 2 == 0:
+        event_sum = event_sum + i
+    i = i + 1
+print(event_sum)
+-------------------------------------------
+#collection type
+cart = input("Enter vegetable required: ")
+vegetable={"onion":10, "tomatto":20, "brinjal":15, "potato":25, "carrot":30}
+price = vegetable.get(cart)
+if price is not None:
+    print(price)
+else:
+    print("product not available")
+------------------------------------------------------
+#Use Case 3 (Bug Fixing): List Index Error
+items = ["Pen", "Book", "Mouse", "Keyboard"]
+i = 0
+while i < len(items):
+    print(items[i])
+    i = i + 1
+-------------------------------------------------------
+#use case 2

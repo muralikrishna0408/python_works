@@ -158,3 +158,17 @@ while i < len(items):
     i = i + 1
 -------------------------------------------------------
 #use case 2
+cities = []
+uniq_cities = set()
+while True:
+    city = input("Enter a city: ")
+    if city == "exit":
+        break
+    cities.append(city)
+    print(city)
+    uniq_cities.add(city)
+    print(cities)
+print("All cities:", cities)
+print("Unique cities:", uniq_cities)
+--------------------------------------------------------
+

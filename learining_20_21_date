@@ -171,4 +171,16 @@ while True:
 print("All cities:", cities)
 print("Unique cities:", uniq_cities)
 --------------------------------------------------------
-
+try:
+    n = float(input("enter a number: "))
+    n2 = float(input("enter a number: "))
+    result = n / n2
+    print(result)
+except ZeroDivisionError:
+    print("division not allowed")
+-----------------------------------------------
+try:
+    n = int(input("enter a number: "))
+    print(n)
+except ValueError:
+    print("char not allowed")

@@ -89,5 +89,36 @@ def final_bill_fun(*args,shipping_charges):
 total_amt=final_bill_fun(100,200,300,shipping_charges=100)
 print(total_amt)
 --------------------------------------------------------------------
+def calculate_discount(amt,off_pct=0.2,shipping_charges=50):
+    offer_applied=amt-(amt*off_pct)
+    total_bill=offer_applied+shipping_charges
+    return(total_bill)
+
+try:
+    amt=float(input("Enter a number: "))
+    result = calculate_discount(amt)
+    print(result)
+except ValueError:
+    print("invalid syntax")
+--------------------------------------------------------------------------
+def get_salary(*args,hra=0.1):
+    salary=sum(args)
+    hra_amt=salary * hra
+    total_salary=(salary+hra_amt)
+    return total_salary
+def calculate_bonus(salary,bonus_pct=0.1):
+    bonus=salary*bonus_pct
+    return bonus
+def calculate_total_salary(salary, bonus):
+    final_salary=salary+bonus
+    return final_salary
+
+my_salary = get_salary(10000)
+bonus = calculate_bonus(my_salary)
+n_salary = calculate_total_salary(my_salary,bonus)
+print("Your Salary + HRA is", my_salary)
+print("Your bonus is ", bonus)
+print("Your net salary is", n_salary)
+--------------------------------------------------------------------------
 
 

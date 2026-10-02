@@ -1,0 +1,93 @@
+def irfan_len_func(lst):
+    a=0
+    for i in lst:
+        a+=1
+    return a
+print(irfan_len_func([1,2,3,10,25,20]))
+
+------------------------------------------------
+def my_complete_fun(compname:str):
+    '''Doc String: This is a comprehensive function with all
+    possible clauses/constructs used'''
+    lower_compname=compname.lower()
+    return lower_compname
+
+--------------------------------------------------------
+lower_TCS=my_complete_fun('TCS')
+print(lower_TCS)
+lower_MURALI=my_complete_fun("MURALI")
+print(lower_MURALI)
+---------------------------------------------------------
+def add(a,b,c):
+    d=a+b+c
+    #print("Result is: ",d)
+    return d
+
+def sub(a,b):
+    return a-b
+result1=add(10,20,30)
+print(result1)
+subresult2=sub(result1,20)
+print(subresult2)
+------------------------------------------------
+
+import os
+def list_current_dir():
+    list_of_current_dir=os.listdir(os.getcwd())
+    return list_of_current_dir
+dir_files_we_have=list_current_dir()
+print(dir_files_we_have)
+-----------------------------------------------
+import os
+def list_d_directory(dir):
+    list_of_d_directory=os.listdir(dir)
+    return list_of_d_directory
+dir_files_d=list_d_directory("D:\\")
+print(dir_files_d)
+---------------------------------------------
+def calculate_offer(amt,off_pct,shipping_charges):
+    offer_applied_amt=amt-(amt*off_pct)
+    total_bill_amt=offer_applied_amt+shipping_charges
+    return total_bill_amt
+result=calculate_offer(2000,0.2,100)
+print('Positional with right mapping',result)
+result=calculate_offer(2000,100,.05)
+print('Positional with wrong mapping',result)
+----------------------------------------------------
+result=calculate_offer(amt=2000,off_pct=0.2,shipping_charges=100)
+print('Named is always right in mapping',result)
+result=calculate_offer(amt=2000,shipping_charges=100,off_pct=0.2)
+print('Named is always right in mapping',result)
+---------------------------------------------------------
+def calculate_offer(amt,off_pct=.0,shipping_charges=0):
+    offer_applied_amt=amt-(amt*off_pct)
+    total_bill_amt=offer_applied_amt+shipping_charges
+    return(total_bill_amt)
+result_less_arguments=calculate_offer(1000)#Default arguments works with positional..
+print(result_less_arguments)
+----------------------------------------------------------
+def calculate_offer(amt,shipping_charges,off_pct=.0):
+    offer_applied_amt=amt-(amt*off_pct)
+    total_bill_amt=offer_applied_amt+shipping_charges
+    return round(total_bill_amt)
+result_less_arguments=calculate_offer(1000,shipping_charges=100)
+print(result_less_arguments)
+------------------------------------------------------------
+def mail_id(fname:str, lname:str, domain:str="@tcs.com"):
+    return fname + '.' + lname + domain
+print(mail_id("murali", "krishna"))  # Uses default domain
+print(mail_id("murali", "rajesh","@tcs.com"))
+print(mail_id(fname="murali", lname="krishna",domain="@tcs.com"))
+-------------------------------------------------------------------
+def final_bill_fun(*args,shipping_charges):
+    print(type(args))
+    print("product amount", args)
+    print("shipping_charges", shipping_charges)
+    total_bill_amt=sum(args)
+    final_bill_amt=(total_bill_amt-shipping_charges)
+    return final_bill_amt
+total_amt=final_bill_fun(100,200,300,shipping_charges=100)
+print(total_amt)
+--------------------------------------------------------------------
+
+

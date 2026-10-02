@@ -184,3 +184,14 @@ try:
     print(n)
 except ValueError:
     print("char not allowed")
+
+-------------------------------------------------------
+try:
+    num1=int(input("input a number1: "))
+    num2=int(input("input a number2: "))
+    result = num1/num2
+    print(result)
+except ValueError:
+    print("invalide syntax")
+except ZeroDivisionError:
+    print("cannot divide by zero")

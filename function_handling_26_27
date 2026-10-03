@@ -120,5 +120,38 @@ print("Your Salary + HRA is", my_salary)
 print("Your bonus is ", bonus)
 print("Your net salary is", n_salary)
 --------------------------------------------------------------------------
+def find_square():
+    num = int(input("Enter a number: "))
+    result = num * num
+    print("Square of the number is", result)
+    return result
+number=find_square()
+print(number)
+----------------------------------------------------------------------
+def is_even(num):
+    num=num % 2 == 0
+    return num
+def find_max(*numbers):
+    num1=max(numbers)
+    return num1
+def perform_operation(num, operation):
+    if operation == "square":
+        return num * num
+    elif operation == "cube":
+        return num * num * num
+    else:
+        return "invalid operation"
+
+even_num=is_even(10)
+print(even_num)
+max_number=find_max(1,2,3,5,7,9)
+print(max_number)
+square=perform_operation
+print(square(5,"square"))
+print(perform_operation(5, "cube"))
+print(perform_operation(5, "power"))
+--------------------------------------------------------------------------------------
+
+
 
 

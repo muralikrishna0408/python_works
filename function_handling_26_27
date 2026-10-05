@@ -152,6 +152,12 @@ print(perform_operation(5, "cube"))
 print(perform_operation(5, "power"))
 --------------------------------------------------------------------------------------
 
-
+def generate_invoice(**products):
+    total=0
+    for product, price in products.items():
+        print(product, price)
+        total = total + price
+    print("total amount", total)
+generate_invoice(rice=100, milk=50, apple=80)
 
 

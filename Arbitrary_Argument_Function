@@ -1,0 +1,111 @@
+sensor_7am=22,21,22,20,23,25,27,28
+sensor_10am=22,21,22,20,23,25,27,28,41,30,45
+import statistics as st
+print(max(sensor_7am))
+print(min(sensor_7am))
+print(st.median(sensor_7am))
+print(st.mean(sensor_7am))
+def weather_stats(*args):
+    import statistics as st
+    print(args)
+    max_temp=max(args)
+    min_temp=min(args)
+    mean_temp=st.mean(args)#sum(args)/len(args)
+    median_temp=st.median(args)
+    std_dev_temp=st.stdev(args)
+    return {'max_temp':max_temp,'min_temp':min_temp,'median_temp':median_temp,'mean_temp':mean_temp,'std_dev_temp':std_dev_temp}
+print(weather_stats(22,21,22,20,23,25,27,28))
+print(weather_stats(22,21,22,20,23,25,27,28,41,30,45))
+-----------------------------------------------------------------------------------------
+def funname(**kwargs):#pass any number of named arguments
+	print(type(kwargs))#dict type
+	print(kwargs)
+	print('arg1',kwargs['x'])#access the tuple using key(name)
+	print('arg2',kwargs['y'])
+	print('arg3',kwargs['z'])
+
+funname(x=10,y=20,z=30)#only called by using positional (cannot by named argument)
+
+<class 'dict'>
+{'x': 10, 'y': 20, 'z': 30}
+arg1 10
+arg2 20
+arg3 30
+--------------------------------------------------------------------------------------
+#Usecase 2: IT Gross Sal Calculator - *args
+#CTS -> sal, bon, inc (100000,5000,.02)
+#INFY -> sal, bon (100000,5000)
+#Can i achieve using arb arg fun? yes, or which one is better? KWArgs is better because we have to handle arguments using name, not by using position.
+def hr_workways_sal_fun(*args):
+    print(args)
+    if args[0]=='CTS':
+        sal=args[1]
+        bon=args[2]
+        inc=args[3]
+        inc_amt=sal*inc
+        final_sal=sal+bon+inc_amt
+    elif args[0]=='INFY':
+        sal=args[1]
+        bon=args[2]
+        final_sal=sal+bon
+    elif args[0]=='HCL':
+        sal=args[1]
+        final_sal=sal
+    else:
+        return 0
+    return int(final_sal)
+
+#Emp1
+final_sal_cts=hr_workways_sal_fun('CTS',100000,5000,.02)
+final_sal_infy=hr_workways_sal_fun('INFY',100000,5000)
+final_sal_hcl=hr_workways_sal_fun('HCL',100000)
+final_sal_wipro=hr_workways_sal_fun('WIPRO',100000,6000)
+#print(final_sal_cts,final_sal_infy,final_sal_hcl)
+print("cts final sal",final_sal_cts)
+print("infy final sal",final_sal_infy)
+print("hcl final sal",final_sal_hcl)
+print("wipro final sal",final_sal_wipro)
+
+('CTS', 100000, 5000, 0.02)
+('INFY', 100000, 5000)
+('HCL', 100000)
+('WIPRO', 100000, 6000)
+cts final sal 107000
+infy final sal 105000
+hcl final sal 100000
+wipro final sal 0
+------------------------------------------------------------------------------
+#Usecase 2: IT Gross Sal Calculator - **kwargs
+#CTS -> sal, bon, inc (100000,5000,.02)
+#INFY -> sal, bon (100000,5000)
+#Can i achieve using arb arg fun? yes, or which one is better? KWArgs is better because 
+#we have to handle arguments using name, not by using position.
+def hr_workways_sal_fun(**kwargs):
+    print(kwargs)
+    compname=kwargs['compname']
+    if compname in ['CTS','INFY','HCL',]:
+        sal=kwargs['sal']
+        bon=kwargs.get('bon',0)
+        inc=kwargs.get('inc',0)
+        inc_amt=sal*inc
+        return int(sal+bon+inc_amt)
+
+final_sal_cts=hr_workways_sal_fun(compname='CTS',sal=100000,bon=5000,inc=.02)
+final_sal_infy=hr_workways_sal_fun(compname='INFY',sal=100000,bon=5000)
+final_sal_hcl=hr_workways_sal_fun(compname='HCL',sal=100000,inc=.03)
+final_sal_wipro=hr_workways_sal_fun(compname='WIPRO',sal=100000,bon=6000)
+
+print("cts final sal",final_sal_cts)
+print("infy final sal",final_sal_infy)
+print("hcl final sal",final_sal_hcl)
+print("wipro final sal",final_sal_wipro)
+
+{'compname': 'CTS', 'sal': 100000, 'bon': 5000, 'inc': 0.02}
+{'compname': 'INFY', 'sal': 100000, 'bon': 5000}
+{'compname': 'HCL', 'sal': 100000, 'inc': 0.03}
+{'compname': 'WIPRO', 'sal': 100000, 'bon': 6000}
+cts final sal 107000
+infy final sal 105000
+hcl final sal 103000
+wipro final sal None
+----------------------------------------------------------------------------

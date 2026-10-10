@@ -109,3 +109,104 @@ infy final sal 105000
 hcl final sal 103000
 wipro final sal None
 ----------------------------------------------------------------------------
+#Variable Scope (Local vs Global)
+#Global: A variable defined in a program (outside of a function)
+a=100#Global variable, exists across this notebook/module
+#Local variable: A variable defined inside a function has only scope within the function.
+b=10#Global
+c=20#Global
+def fun1():
+    b=200#Local
+    global c
+    c=300#Override the global variable defined outside of this function
+fun1()
+print(b)#prints global value of 10 rather than local value of 200
+print(c)#prints global value of 300 by overriding the global value of 20
+
+10
+300
+-------------------------------------------------------------------------
+#This notebook is my area (Velachery)
+temp=40
+def home():
+    temp=25#Local to your home
+    print("temp inside house",temp)
+home()
+print("temp outside house",temp)
+
+temp inside house 25
+temp outside house 40
+----------------------------------------------------------------------
+#This notebook is my entire home
+hometemp=33
+print("temp inside house before switched on the ac",hometemp)
+def central_ac_home():
+    global hometemp
+    hometemp=25#global to your home
+central_ac_home()
+print("temp inside house after switched on the ac",hometemp)
+
+temp inside house before switched on the ac 33
+temp inside house after switched on the ac 25
+-----------------------------------------------------------------------
+#6. Higher Order Functions (HOF)
+#final_sal=sal+bon
+def sqrt(x):
+    return x*x
+
+def fun1(a,b):#HOF (Func passed as an input to another function)
+    return b(a)
+
+print(fun1(10,sqrt))
+
+100
+-------------------------------------------------------------------------
+def add(a,b):
+    return a+b
+
+def sub(a,b):
+    return a-b
+
+def mul(a,b):
+    return a*b
+
+def div(a,b):
+    return a/b
+
+def fun1(a,b,xyz):#We can pass value or function as an input to a function
+    #print(a,b,xyz)#a=10,b=5,xyz=add
+    result=xyz(a,b)
+    return result
+
+print(fun1(10,5,add))
+print(fun1(10,5,sub))
+print(fun1(10,5,mul))
+print(fun1(10,5,div))
+
+15
+5
+50
+2.0
+---------------------------------------------------------------------------------
+#HOF - If a function returns another function
+def parentfun1():
+    print("parent function is running and returning child function")
+    def childfun2():
+        print("child function is running")
+    return childfun2
+
+childf=parentfun1()
+childf()
+
+child function is running
+-------------------------------------------------------------------------------------
+def percent_calc(pct):
+    return pct / 100
+
+# calc_func is a function passed as argument
+def calc_gross(sal, pct, calc_func):
+    fraction = calc_func(pct)
+    return sal + (sal * fraction)
+print(calc_gross(100000, 10, percent_calc))
+
+110000.0

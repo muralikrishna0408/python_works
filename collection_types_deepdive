@@ -1,0 +1,316 @@
+We are going to learn about Collections + Built in functions
+
+#Minimum register these concepts
+#Collections/Complex
+#Howmany:4
+#order of importance: list, dict, tuple, set
+#list[]: Indexed Seq/iterable collection of homogeneous elements/items
+#dict{k:v..}: Seq/iterable collection of key,value pairs
+#tuple(): Indexed Seq/iterable collection of hetrogeneous elements/items
+#set{1,2..}: Seq/iterable collection of unique homogeneous elements/items
+#All collection are Sequenced/iterable (run loop on all collection types)
+#    0,1,2,3
+lst=[1,2,3,4]
+#SQL Database? select colname from tablename (internally it will retrive data in a form of list)
+print(type(lst))
+print(lst[0])
+#      key
+dict1={1:10,2:20,3:30,4:40}
+#SQL Database? select name from tablename where empid=100 (internally it will retrive data in a form of dictionary, because the where can work only on dictionary)
+emp_dict={100:'irfan',2:'sojiv',3:'aish'}
+print(emp_dict[100])
+#SQL Database? select name,age from tablename where empid=100 (internally it will retrive data in a form of dictionary, because the where can work only on dictionary)
+emp_dict={100:('irfan',44),2:('sojiv',30),3:('aish',35)}
+print(emp_dict[100])
+#    0, 1,  2,  3  ,4
+tup=(1,'a','b','c',100)
+#SQL Database? select name,age from tablename (internally it will retrive data in a form of tuple, because we need data of multiple types)
+emp_tuple_record=('irfan',44)
+
+#SQL Database? select name,age from tablename (returning multiple rows, how can i form a data structure).
+emp_tuple_record1=[('irfan',44),('sojiv',30),('aish',35)]#still list is homogeneous & tuple is hetrogeneous
+for recs in emp_tuple_record1:
+    #recs=('irfan',44)
+    print(recs[1])
+list_of_age=list(map(lambda x:x[1],emp_tuple_record1))
+#    set operations/iterations
+set1={1,2,3,3,2}
+#SQL Database? select distinct id,name from tablename (set apply by default dedup of elements/items).
+#Iterable means looping, in database? select = for loop
+def iterate(coll_type):
+    for elem in coll_type:
+        print(coll_type)
+        print(elem)
+iterate(lst)
+iterate(dict1)
+iterate(tup)
+iterate(set1)
+<class 'list'>
+1
+irfan
+('irfan', 44)
+44
+30
+35
+[1, 2, 3, 4]
+1
+[1, 2, 3, 4]
+2
+[1, 2, 3, 4]
+3
+[1, 2, 3, 4]
+4
+{1: 10, 2: 20, 3: 30, 4: 40}
+1
+{1: 10, 2: 20, 3: 30, 4: 40}
+2
+{1: 10, 2: 20, 3: 30, 4: 40}
+3
+{1: 10, 2: 20, 3: 30, 4: 40}
+4
+(1, 'a', 'b', 'c', 100)
+1
+(1, 'a', 'b', 'c', 100)
+a
+(1, 'a', 'b', 'c', 100)
+b
+(1, 'a', 'b', 'c', 100)
+c
+(1, 'a', 'b', 'c', 100)
+100
+{1, 2, 3}
+1
+{1, 2, 3}
+2
+{1, 2, 3}
+3
+#Let's learn more deep about list using builtin functions wrt - access/mutable(updatable)/resizable(add/remove)
+lst1=[10000,15000,25000,5000,12000,5000]
+lst2=['irfan','senthil','vijay']
+#SQL Database? select colname from tablename (internally it will retrive data in a form of list)
+print(type(lst))
+print(lst[0])
+<class 'list'>
+1
+10000
+using map function we can select items
+11000
+16000
+26000
+6000
+13000
+6000
+[None, None, None, None, None, None]
+regular for loop we can select items
+11000
+16000
+26000
+6000
+13000
+6000
+before reverse [10000, 15000, 25000, 5000, 12000, 5000]
+after reverse [5000, 12000, 5000, 25000, 15000, 10000]
+2
+#Builtin Functions to access/updating/resizing
+#How to select/Access element from list?
+print(lst1[0])#using index
+
+print("using map function we can select items")
+print(list(map(lambda i:print(i+1000),lst1)))#select
+
+print("regular for loop we can select items")
+for i in lst1:#select
+    print(i+1000)
+
+##Access - Steps to access & understand a builtin function?
+#0. Use AI
+#1. extend our value with .
+#2. Use the NAME to understand about the function basically
+#3. HOVER the function to understand about it additionally using doc string
+#4. Using documentations by the creater of the functions
+print("before reverse",lst1)
+lst1.reverse()#I am updating/mutating the given list
+print("after reverse",lst1)#I am selecting the list by reversing
+
+#Access - Filtering & selecting the count of a given value in a list
+lst1.count(5000)#count is a method rather than calling it a function
+
+#Access -
+lst1=[10000,15000,25000,5000,12000,5000]
+print(lst1.index(5000))
+#position 1  2      4   4       5   6
+#index 0    1       2   3       4   5
+lst1=[10000,15000,25000,5000,12000,5000]
+print(lst1.index(5000))#return 3
+print(lst1.index(5000,4,6))
+#I don't need the first index value of a input value?
+print(lst1.index(5000,lst1.index(5000)+1))
+print("Access from right to left using -1",lst1.index(5000,-1))
+#lst1.reverse()
+print(list(reversed(lst1)).index(5000))
+print("reversed list in memory",list(reversed(lst1)))
+print("original list is not affected",lst1)
+10000
+using map function we can select items
+11000
+16000
+26000
+6000
+13000
+6000
+[None, None, None, None, None, None]
+regular for loop we can select items
+11000
+16000
+26000
+6000
+13000
+6000
+before reverse [10000, 15000, 25000, 5000, 12000, 5000]
+after reverse [5000, 12000, 5000, 25000, 15000, 10000]
+3
+3
+5
+5
+Access from right to left using -1 5
+0
+reversed list in memory [5000, 12000, 5000, 25000, 15000, 10000]
+original list is not affected [10000, 15000, 25000, 5000, 12000, 5000]
+#Updatable/Mutable? yes
+lst=[10000,15000,25000,5000,12000,5000]
+print("original list",lst)
+lst[1]=50000
+print("updated/mutated",lst)
+lst.reverse()#Update/mutate the list with reversed values
+print("updated after reverse()",lst)
+lst_copy=[1000]
+lst_copy=lst.copy()#update function
+print("list with 1000 got updated with lst values",lst_copy)
+lst.sort(reverse=True)
+print("updated after sort() (mutable function) in a descending order",lst)
+original list [10000, 15000, 25000, 5000, 12000, 5000]
+updated/mutated [10000, 50000, 25000, 5000, 12000, 5000]
+updated after reverse() [5000, 12000, 5000, 25000, 50000, 10000]
+list with 1000 got updated with lst values [5000, 12000, 5000, 25000, 50000, 10000]
+updated after sort() in a descending order [50000, 25000, 12000, 10000, 5000, 5000]
+#Resizing functions (insert/delete)? yes
+lst=[10000,15000,25000,5000,12000,5000]
+print(len(lst))
+lst.append(50000)#insert
+print(lst)
+print(len(lst))
+tup1=(1000,2000,3000)
+lst.extend(tup1)#insert any other seq/iterable types to our list
+print(lst)
+print(len(lst))
+lst.pop(1)#delete last index element/given index value
+print(len(lst))
+print(lst)
+lst.remove(5000)#delete the given value
+print(len(lst))
+print(lst)
+lst.clear()#wipe off the list
+print(len(lst))
+print("clean list",lst)
+6
+[10000, 15000, 25000, 5000, 12000, 5000, 50000]
+7
+[10000, 15000, 25000, 5000, 12000, 5000, 50000, 1000, 2000, 3000]
+10
+9
+[10000, 25000, 5000, 12000, 5000, 50000, 1000, 2000, 3000]
+8
+[10000, 25000, 12000, 5000, 50000, 1000, 2000, 3000]
+0
+clean list []
+#dict
+dic={1:'irfan',2:'uvaraj',3:'sojiv',1:'senthil'}
+#select(access)
+print(dic[2])#access using key returns value, if key is not present throws error keyerror
+print(dic.get(2))#access using key returns value, if key is not present returns default of None
+print(list(dic.items()))#returns both key & value in what format?
+for key,value in dic.items():
+    print(key,value)
+print(dic.keys())#returns only keys in a format of list
+print(dic.values())#returns only keys in a format of list
+
+#updatable(mutable)
+dic1={1:'irfan',2:'uvaraj',3:'sojiv'}
+dic2={1:'senthil',4:'suji'}
+dic1.update(dic2)#merge (update if same key else append)
+print(dic1)
+dic1[2]='Yuvaraj'
+print(dic1)
+
+#insert/delete(resizable)
+dic1.pop(3)#pop will remove the item of the given key, keyerror will be thrown otherwise
+print(dic1)
+dic1={1:'irfan',2:'uvaraj',3:'sojiv'}
+dic1.popitem()#last item of the dictionary
+print(dic1)
+dic1.update({4:'suji'})#Inserting/updating items to dictionary
+print(dic1)
+dic1.clear()
+print(dic1)
+dic1={1:'irfan',2:'uvaraj',3:'sojiv'}
+dic3={}.fromkeys([1,2,3,4],"inceptez")#Generate a dictionary {1:'inceptez',2:'inceptez'}
+print(dic3)
+dic1={1:'irfan',2:'uvaraj',3:'sojiv'}
+dic1.setdefault(4,"inceptez")#insert of the given dictionary using the key & value
+print(dic1)#{1:'irfan',2:'uvaraj',3:'sojiv',4:'inceptez'}
+uvaraj
+uvaraj
+[(1, 'senthil'), (2, 'uvaraj'), (3, 'sojiv')]
+1 senthil
+2 uvaraj
+3 sojiv
+dict_keys([1, 2, 3])
+dict_values(['senthil', 'uvaraj', 'sojiv'])
+{1: 'senthil', 2: 'uvaraj', 3: 'sojiv', 4: 'suji'}
+{1: 'senthil', 2: 'Yuvaraj', 3: 'sojiv', 4: 'suji'}
+{1: 'senthil', 2: 'Yuvaraj', 4: 'suji'}
+{1: 'irfan', 2: 'uvaraj'}
+{1: 'irfan', 2: 'uvaraj', 4: 'suji'}
+{}
+{1: 'inceptez', 2: 'inceptez', 3: 'inceptez', 4: 'inceptez'}
+{1: 'irfan', 2: 'uvaraj', 3: 'sojiv'}
+#Tuple is immutable & non resizable
+tup1=(1,44,'irfan',44,44)
+print(tup1[0])#select using index
+print(tup1.index('irfan'))
+print(tup1.count(44))
+1
+2
+3
+#Set is immutable & non resizable
+st1={10,20,30}
+st2={20,40}
+#access(select) - only through iteration/set operations (no individual operation)
+lst1=list(st1)#I still need to access a particular elem of a set, convert to list/tup
+print(lst1[1])
+for i in st1:
+    print(i)
+st3= {21,31,60}
+print(st1.isdisjoint(st2))#True - nothing matches
+print(st1.union(st2))#{10,20,30,40}
+print(st1.intersection(st2))#20
+print(st1.difference(st2))#A-B {10,30}
+print(st1.symmetric_difference(st2))#A-B & B-A {10,30,40}
+st1={10,20,30}
+st2={10,20,30,40,50}
+print(st2.issuperset(st1))#set2 is a parent of set1 - true
+print(st1.issubset(st2))#set1 is a child of set2 - true
+
+#mutable & resizable part we will see quickly next week
+#print(st1.)
+20
+10
+20
+30
+False
+{20, 40, 10, 30}
+{20}
+{10, 30}
+{40, 10, 30}
+True
+True
